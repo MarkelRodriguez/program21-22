@@ -45,11 +45,40 @@ public class Cylinder extends Circle {
 
    /** Returns the volume of this Cylinder */
    public double getVolume() {
-      return getArea()*height;   // Use Circle's getArea()
+      return super.getArea()*height;   // use superclass' getArea()
+   }
+  public double getArea() {
+      return 2*Math.PI*getRadius()*height + 2*super.getArea();
    }
 
    /** Returns a self-descriptive String */
    public String toString() {
-      return "This is a Cylinder";  // to be refined later
+      return "Cylinder[" + super.toString() + ",height=" + height + "]";   
    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.height) ^ (Double.doubleToLongBits(this.height) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cylinder other = (Cylinder) obj;
+        if (Double.doubleToLongBits(this.height) != Double.doubleToLongBits(other.height)) {
+            return false;
+        }
+        return true;
+    }
+   
 }
