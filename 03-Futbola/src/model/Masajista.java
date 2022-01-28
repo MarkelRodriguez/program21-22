@@ -45,7 +45,7 @@ public class Masajista extends IntegranteSeleccion{
 
     @Override
     public String toString() {
-        return "Masajista{" + "titulacion=" + titulacion + ", a\u00f1osExperiencia=" + añosExperiencia + ", id=" + super.id + ", nombre=" + super.nombre + ", apellido=" + getApellidos() + ", edad=" + getEdad() +'}';
+        return "Masajista{" + "titulacion=" + titulacion + ", Experiencia=" + añosExperiencia + ", id=" + super.id + ", nombre=" + super.nombre + ", apellido=" + getApellidos() + ", edad=" + getEdad() +'}';
     }
     
 }
