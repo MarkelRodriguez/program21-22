@@ -52,7 +52,7 @@ public class EuskalSelekzioa {
      * Amaitzeko, Villalibre entrenatzen hasiko da.
      */
     public static void futbolariBat() {
-        Futbolista f1 = new Futbolista(11, DEL, azkenId++, "Asier", "Villalibre", 24);
+        Futbolista f1 = new Futbolista(11, DEL, 1, "Asier", "Villalibre", 24);
         f1.toString();
         f1.entrenar();
 
@@ -67,9 +67,9 @@ public class EuskalSelekzioa {
      * eta bidaiatuko dute
      */
     public static void bestePartaideBatzukSortu() {
-        Masajista m1 = new Masajista("Fisioterapeuta", 12, azkenId++, "Iñaki", "Sertxiberrieta", 42);
-        Masajista m2 = new Masajista("Medikua", 14, azkenId++, "Ander", "Etxeburu", 34);
-        Entrenador e1 = new Entrenador("10FH", azkenId++, "Javier", "Clemente", 71);
+        Masajista m1 = new Masajista("Fisioterapeuta", 12, 2, "Iñaki", "Sertxiberrieta", 42);
+        Masajista m2 = new Masajista("Medikua", 14, 3, "Ander", "Etxeburu", 34);
+        Entrenador e1 = new Entrenador("10FH", 4, "Javier", "Clemente", 71);
         System.out.println(m1);
         m1.concentrarse();
         m1.viajar();
@@ -88,7 +88,7 @@ public class EuskalSelekzioa {
      *
      */
     public static void selekzioOsoaSortu() {
-
+        
         selekzioa.add(new Futbolista(1, POR, azkenId++, "Aitor", "Fernandez", 30));
         selekzioa.add(new Futbolista(2, DEF, azkenId++, "Unai", "Bustinza", 29));
         selekzioa.add(new Futbolista(3, DEF, azkenId++, "Mikel", "Balenziaga", 33));
@@ -106,7 +106,13 @@ public class EuskalSelekzioa {
         selekzioa.add(new Futbolista(15, DEF, azkenId++, "Jesus", "Areso", 22));
         selekzioa.add(new Futbolista(16, DEL, azkenId++, "Iñigo", "Vicente", 24));
         selekzioa.add(new Futbolista(17, DEF, azkenId++, "Daniel", "Vivian", 30));
-        System.out.println(selekzioa);
+        selekzioa.add(new Masajista("Fisioterapeuta", 12, azkenId++, "Iñaki", "Sertxiberrieta", 42));
+        selekzioa.add(new Masajista("Medikua", 14, azkenId++, "Ander", "Etxeburu", 34));
+        selekzioa.add(new Entrenador("10FH", azkenId++, "Javier", "Clemente", 71));
+        
+        for(int i = 0; i < selekzioa.size(); i++ ){
+            System.out.println(selekzioa.get(i));
+        }
     }
 
     /**
@@ -117,15 +123,19 @@ public class EuskalSelekzioa {
      * @return
      */
     public static boolean partaideaEzabatu(int id) {
-        for (id = 0; id <= selekzioa.size(); id++) {
-          if(id != selekzioa.get(id).getId()){
-          } else {
-              selekzioa.remove(id);
-            }  
-            
+        boolean aurkitu = false;
+        for (int i = 0; i < selekzioa.size(); i++) {
+          if(selekzioa.get(i).getId() == id ){
+          selekzioa.remove(i);
+          aurkitu = true;
+          } 
+          else {
+              aurkitu = false;
+            } 
+          
             
         }
         System.out.println(selekzioa);
-        return false;
+        return aurkitu;
     }
 }
