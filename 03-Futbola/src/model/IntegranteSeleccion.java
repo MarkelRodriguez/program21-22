@@ -5,7 +5,12 @@
  */
 package model;
 
+import static exekutagarriak.EuskalSelekzioa.azkenId;
 import java.util.ArrayList;
+import static model.Demarkazioa.DEF;
+import static model.Demarkazioa.DEL;
+import static model.Demarkazioa.MED;
+import static model.Demarkazioa.POR;
 
 /**
  *
@@ -61,6 +66,7 @@ public class IntegranteSeleccion {
     }
     public static ArrayList <IntegranteSeleccion>  getSelekzioa() {
         ArrayList <IntegranteSeleccion> selekzioa = new ArrayList();
+        
         return selekzioa;
     }
     public void concentrarse(){
