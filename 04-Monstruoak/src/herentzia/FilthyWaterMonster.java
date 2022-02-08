@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg04.monstruoak;
+package herentzia;
 
 /**
  *
  * @author rodriguez.markel
  */
-public class Monstruoak {
+public class FilthyWaterMonster extends WaterMonster{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public FilthyWaterMonster(String name) {
+        super(name);
     }
-    
+    @Override
+   public String attack() {
+      return "Attack with filthy water!";
+   }
 }
+    
+
