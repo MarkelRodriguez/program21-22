@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package model.bezerointerfazea;
 
 /**
  *
  * @author rodriguez.markel
  */
-public class Pertsona {
+public interface  Bezeroak {
+    
+    
+    public int getKodea();
+    public String getIzena();
+    public String getHelbidea();
+    public String getEmaila();
     
 }
