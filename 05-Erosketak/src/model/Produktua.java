@@ -5,7 +5,7 @@
  */
 package model;
 
-import java.util.Arrays;
+
 
 
 
@@ -57,7 +57,8 @@ public class Produktua {
 
     @Override
     public String toString() {
-        return "Produktua{" + "kodea=" + getStrKodea() + ", izena=" + izena + ", prezioa=" + prezioa + '}';
+        
+        return "kodea=" + getStrKodea() + ", izena=" + izena + ", prezioa=" + prezioa ;
     }
     
 }

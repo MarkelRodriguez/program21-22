@@ -29,7 +29,7 @@ public class Pertsona implements Bezeroak{
     }
 
     public String getIzena() {
-        return izena;
+        return izena + " " + abizena;
     }
     
     public String getAbizena() {

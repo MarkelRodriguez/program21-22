@@ -69,7 +69,9 @@ public class Erosketak {
     }
 
     public ArrayList<Produktua> getProduktuak() {
+
         return produktuak;
+        
     }
 
     public void setProduktuak(ArrayList<Produktua> produktuak) {
@@ -97,8 +99,36 @@ public class Erosketak {
         return "Erosketak{" + "kodea=" + getStrKodea() + ", data=" + data + ", bezeroa=" + bezeroa + ", produktuak=" + produktuak + ", unitateak=" + unitateak + ", guztira=" + guztira + '}';
     }
     
+   public String toStringLuzea(){
+      
+      
+       
+            for ( Produktua produktua:produktuak){
+                  
+                System.out.println(produktua);
+            } 
+           return"EROSKETA"
+           + "\n kodea: " + getStrKodea() + " Data: " + data
+           + "\n Izena: " + getBezeroa().getIzena()
+           + "\n Helbidea: " + getBezeroa().getHelbidea()
+           + "\n E-maila : " + getBezeroa().getEmaila()
+           +"\n 1.Produktua: ";
+           
+       
+   }
    
-    
+   public boolean guztiraEgiaztatu(){
+        int zenbatekoa = 0;
+        for (int i = 0; i < produktuak.size(); i++) {
+            zenbatekoa += produktuak.get(i).getPrezioa() * unitateak.get(i);
+        }
+        
+        if(zenbatekoa == guztira){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     
     
