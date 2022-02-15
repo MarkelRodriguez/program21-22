@@ -14,9 +14,9 @@ public class Enpresak implements Bezeroak {
     String izena;
     String abizena;
     String helbidea;
-    String emaila;
+    String [] emaila;
 
-    public Enpresak(int kodea, String izena, String abizena, String helbidea, String emaila) {
+    public Enpresak(int kodea, String izena, String abizena, String helbidea, String [] emaila) {
         this.kodea = kodea;
         this.izena = izena;
         this.abizena = abizena;
@@ -41,7 +41,8 @@ public class Enpresak implements Bezeroak {
 
 
     public String getEmaila() {
-        return emaila;
+        String strEmaila = String.valueOf(emaila);
+        return strEmaila;
     }
 
     @Override

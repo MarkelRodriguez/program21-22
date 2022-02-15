@@ -8,7 +8,6 @@ package model;
 import model.bezerointerfazea.Bezeroak;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -26,6 +25,7 @@ public class Erosketak {
         this.kodea = kodea.toCharArray();
         this.bezeroa = bezeroa;
         this.guztira = guztira;
+        data = LocalDate.now();
     }
 
     public Erosketak(String kodea,String data,Bezeroak eroslea,ArrayList<Produktua>produktuak,ArrayList<Integer>unitateak,double guztira){
@@ -101,19 +101,20 @@ public class Erosketak {
     
    public String toStringLuzea(){
       
-      
+      String strLuzea = "";
        
-            for ( Produktua produktua:produktuak){
+             for ( Produktua produktua:produktuak){
+                strLuzea  = "EROSKETA"
+                         + "\n kodea: " + getStrKodea() + " Data: " + data
+                         + "\n Izena: " + getBezeroa().getIzena()
+                         + "\n Helbidea: " + getBezeroa().getHelbidea()
+                         + "\n E-maila : " + getBezeroa().getEmaila()
+                         +"\n 1.Produktua: " + produktua;
+          
                   
-                System.out.println(produktua);
+                
             } 
-           return"EROSKETA"
-           + "\n kodea: " + getStrKodea() + " Data: " + data
-           + "\n Izena: " + getBezeroa().getIzena()
-           + "\n Helbidea: " + getBezeroa().getHelbidea()
-           + "\n E-maila : " + getBezeroa().getEmaila()
-           +"\n 1.Produktua: ";
-           
+        return strLuzea;
        
    }
    
