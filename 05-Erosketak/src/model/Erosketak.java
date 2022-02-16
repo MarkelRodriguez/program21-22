@@ -7,6 +7,7 @@ package model;
 
 import model.bezerointerfazea.Bezeroak;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 /**
@@ -21,11 +22,17 @@ public class Erosketak {
     protected ArrayList<Integer> unitateak;
     protected double guztira;
 
-    public Erosketak(String kodea, Bezeroak bezeroa, double guztira) {
+    public Erosketak(String kodea, String data, Bezeroak bezeroa, double guztira) {
         this.kodea = kodea.toCharArray();
         this.bezeroa = bezeroa;
         this.guztira = guztira;
-        data = LocalDate.now();
+        if (data == " "){
+            this.data = LocalDate.now();
+        }
+        else{
+            this.data = LocalDate.parse(data);
+        }
+        
     }
 
     public Erosketak(String kodea,String data,Bezeroak eroslea,ArrayList<Produktua>produktuak,ArrayList<Integer>unitateak,double guztira){

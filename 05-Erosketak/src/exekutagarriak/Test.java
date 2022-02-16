@@ -20,6 +20,8 @@ public class Test {
         // TODO code application logic here
         Erosketak e1 = new Erosketak("E18-02",null,6750);
         System.out.println(e1);
+        Erosketak e2 = new Erosketak("E18-01","2018-09-25",null,null,null,3630);
+        System.out.println(e2);
         
     }
     

@@ -22,10 +22,21 @@ public class EpekakoErosketa extends Erosketak {
         this.kuota = kuota;
     }
 
+    public EpekakoErosketa(double kuota, String kodea, String data, Bezeroak bezeroa, double guztira) {
+        super(kodea, data, bezeroa, guztira);
+        this.kuota = kuota;
+    }
+    
 
     
     
     public double gainetikOrdainduBeharrekoa(){
         return kuota * epeak - guztira;
     }
+
+    @Override
+    public String toString() {
+        return "EpekakoErosketa{ Kodea= " + super.kodea + "Data= " + super.data + "epeak= " + epeak + ", ordainketaBukatua= " + ordainketaBukatua + ", kuota= " + kuota + '}';
+    }
+    
 }
