@@ -9,7 +9,7 @@ package model.bezerointerfazea;
  *
  * @author rodriguez.markel
  */
-public class Pertsona implements Bezeroak{
+public class Pertsona implements Bezeroa{
     int kodea;
     String izena;
     String abizena;

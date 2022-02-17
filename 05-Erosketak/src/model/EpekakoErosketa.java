@@ -5,24 +5,24 @@
  */
 package model;
 
-import model.bezerointerfazea.Bezeroak;
 import java.util.ArrayList;
+import model.bezerointerfazea.Bezeroa;
 
 /**
  *
  * @author rodriguez.markel
  */
-public class EpekakoErosketa extends Erosketak {
+public class EpekakoErosketa extends Erosketa {
     private int epeak = 12;
     private boolean ordainketaBukatua = false;
     private double kuota;
 
-    public EpekakoErosketa(double kuota, String kodea, String data, Bezeroak bezeroa, ArrayList<Produktua> produktuak, ArrayList<Integer> unitatateak, double guztira) {
+    public EpekakoErosketa(double kuota, String kodea, String data, Bezeroa bezeroa, ArrayList<Produktua> produktuak, ArrayList<Integer> unitatateak, double guztira) {
         super(kodea, data, bezeroa, produktuak, unitatateak, guztira);
         this.kuota = kuota;
     }
 
-    public EpekakoErosketa(double kuota, String kodea, String data, Bezeroak bezeroa, double guztira) {
+    public EpekakoErosketa(double kuota, String kodea, String data, Bezeroa bezeroa, double guztira) {
         super(kodea, data, bezeroa, guztira);
         this.kuota = kuota;
     }
@@ -36,7 +36,7 @@ public class EpekakoErosketa extends Erosketak {
 
     @Override
     public String toString() {
-        return "EpekakoErosketa{ Kodea= " + super.kodea + "Data= " + super.data + "epeak= " + epeak + ", ordainketaBukatua= " + ordainketaBukatua + ", kuota= " + kuota + '}';
+        return "EpekakoErosketa{ Kodea= " + getStrKodea() + "Data= " + super.data + "epeak= " + epeak + ", ordainketaBukatua= " + ordainketaBukatua + ", kuota= " + kuota + '}';
     }
     
 }

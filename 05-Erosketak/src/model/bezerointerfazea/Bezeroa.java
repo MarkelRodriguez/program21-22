@@ -9,7 +9,7 @@ package model.bezerointerfazea;
  *
  * @author rodriguez.markel
  */
-public interface  Bezeroak {
+public interface  Bezeroa {
     
     
     public int getKodea();

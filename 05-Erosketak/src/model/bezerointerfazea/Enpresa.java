@@ -9,14 +9,14 @@ package model.bezerointerfazea;
  *
  * @author rodriguez.markel
  */
-public class Enpresak implements Bezeroak {
+public class Enpresa implements Bezeroa {
     int kodea;
     String izena;
     String abizena;
     String helbidea;
     String [] emaila;
 
-    public Enpresak(int kodea, String izena, String abizena, String helbidea, String [] emaila) {
+    public Enpresa(int kodea, String izena, String abizena, String helbidea, String [] emaila) {
         this.kodea = kodea;
         this.izena = izena;
         this.abizena = abizena;

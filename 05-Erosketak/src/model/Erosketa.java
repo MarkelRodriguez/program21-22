@@ -5,24 +5,24 @@
  */
 package model;
 
-import model.bezerointerfazea.Bezeroak;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import model.bezerointerfazea.Bezeroa;
 
 /**
  *
  * @author rodriguez.markel
  */
-public class Erosketak {
+public class Erosketa {
     protected char[] kodea;
     protected LocalDate data;
-    protected Bezeroak bezeroa;
+    protected Bezeroa bezeroa;
     protected ArrayList<Produktua> produktuak;
     protected ArrayList<Integer> unitateak;
     protected double guztira;
 
-    public Erosketak(String kodea, String data, Bezeroak bezeroa, double guztira) {
+    public Erosketa(String kodea, String data, Bezeroa bezeroa, double guztira) {
         this.kodea = kodea.toCharArray();
         this.bezeroa = bezeroa;
         this.guztira = guztira;
@@ -35,7 +35,7 @@ public class Erosketak {
         
     }
 
-    public Erosketak(String kodea,String data,Bezeroak eroslea,ArrayList<Produktua>produktuak,ArrayList<Integer>unitateak,double guztira){
+    public Erosketa(String kodea,String data,Bezeroa eroslea,ArrayList<Produktua>produktuak,ArrayList<Integer>unitateak,double guztira){
         this.kodea = kodea.toCharArray();
         this.data = LocalDate.parse(data);
         this.produktuak = produktuak;
@@ -67,11 +67,11 @@ public class Erosketak {
         this.data = data;
     }
 
-    public Bezeroak getBezeroa() {
+    public Bezeroa getBezeroa() {
         return bezeroa;
     }
 
-    public void setBezeroa(Bezeroak bezeroa) {
+    public void setBezeroa(Bezeroa bezeroa) {
         this.bezeroa = bezeroa;
     }
 
