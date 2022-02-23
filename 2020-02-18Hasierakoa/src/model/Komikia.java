@@ -5,13 +5,15 @@
  */
 package model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author rodriguez.markel
  */
 public class Komikia extends Book{
     private boolean kolorea;
-
+    
     public Komikia(String name, Author author, double price, int pages, boolean kolorea) {
         super(name, author, price, pages);
         this.kolorea = kolorea;
@@ -32,7 +34,27 @@ public class Komikia extends Book{
         }
         
     }
-
+      @Override
+    public void argitaratu() {
+        System.out.println("Komiki hau Eibarren argitaratua " + LocalDate.now() + "egunean");
+        argitaratutakoLiburuak++;
+    }
+    @Override
+    public void argitaratuHizk() {
+        if (this.hizkuntza == Hizkuntza.EU ){
+          System.out.println("Eibarren argitaratua " + LocalDate.now() + "egunean");
+          argitaratutakoLiburuak++; 
+        
+        }
+        else if (this.hizkuntza == Hizkuntza.EN){
+          System.out.println("This book was published in Eibar in " + LocalDate.now() );
+          argitaratutakoLiburuak++;      
+        }
+        else if (this.hizkuntza == Hizkuntza.ES){
+          System.out.println("Este libro ha sido publicado en Eibar el dia " + LocalDate.now());
+          argitaratutakoLiburuak++;      
+        }
+    }
     @Override
     public String toString() {
         return"[Komikia]"+ getName() + ", " + getAuthor().getName() + ", " + getNolakoa() + ", " + getPrice() + ", " + getPages();  

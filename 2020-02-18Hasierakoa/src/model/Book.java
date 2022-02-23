@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /*
  * The Book class models a book with one (and only one) author.
@@ -12,9 +13,9 @@ public class Book implements Argitagarria {
     private Author author;
     private double price;
     private int pages;
-    private 
-    private static int argitaratutakoLiburuak = 0;
-
+    protected Hizkuntza hizkuntza;
+    protected static int argitaratutakoLiburuak = 0;
+   
     // Constructors
     public Book() {
 
@@ -25,6 +26,14 @@ public class Book implements Argitagarria {
         this.author = author;
         this.price = price;
         this.pages = pages;
+    }
+    
+    public Book(String name, Author author, double price, int pages,Hizkuntza hizkuntza) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.pages = pages;
+        this.hizkuntza = hizkuntza;
     }
 
     // Getters and Setters
@@ -71,15 +80,62 @@ public class Book implements Argitagarria {
     public static void setArgitaratutakoLiburuak(int argitaratutakoLiburuak) {
         Book.argitaratutakoLiburuak = argitaratutakoLiburuak;
     }
+
     
     @Override
     public String toString() {
         return name + ", " + author.getName() + ", " + price + ", " + pages;  
     }
-
+    public void argitaratuHizk() {
+        if (this.hizkuntza == Hizkuntza.EU ){
+          System.out.println("Eibarren argitaratua " + LocalDate.now() + "egunean");
+          argitaratutakoLiburuak++; 
+        
+        }
+        else if (this.hizkuntza == Hizkuntza.EN){
+          System.out.println("This book was published in Eibar in " + LocalDate.now() );
+          argitaratutakoLiburuak++;      
+        }
+        else if (this.hizkuntza == Hizkuntza.ES){
+          System.out.println("Este libro ha sido publicado en Eibar el dia " + LocalDate.now());
+          argitaratutakoLiburuak++;      
+        }
+    }
     @Override
     public void argitaratu() {
         System.out.println("Eibarren argitaratua " + LocalDate.now() + "egunean");
         argitaratutakoLiburuak++;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+           
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Book other = (Book) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.author, other.author)) {
+            return false;
+        }
+         
+        return true;
+    }
+    
+    
+
 }
