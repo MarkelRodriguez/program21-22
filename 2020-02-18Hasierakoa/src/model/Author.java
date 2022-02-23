@@ -37,6 +37,13 @@ public class Author {
    
    // The toString() describes itself
    public String toString() {
-      return name + " (" + gender + ")" + birthday;
+       String bueltatu = " ";
+       if(birthday != null){
+           bueltatu = name + " (" + gender + ")" + birthday;
+       }
+       else{
+           bueltatu = name + " (" + gender + ")";
+       }
+       return bueltatu;
    }
 }

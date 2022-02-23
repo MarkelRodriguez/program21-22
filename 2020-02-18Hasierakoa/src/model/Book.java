@@ -1,15 +1,19 @@
 package model;
 
+import java.time.LocalDate;
+
 /*
  * The Book class models a book with one (and only one) author.
  */
-public class Book {
+public class Book implements Argitagarria {
     // The private instance variables
 
     private String name;
     private Author author;
     private double price;
     private int pages;
+    private 
+    private static int argitaratutakoLiburuak = 0;
 
     // Constructors
     public Book() {
@@ -60,8 +64,22 @@ public class Book {
         
     }
 
+    public static int getArgitaratutakoLiburuak() {
+        return argitaratutakoLiburuak;
+    }
+
+    public static void setArgitaratutakoLiburuak(int argitaratutakoLiburuak) {
+        Book.argitaratutakoLiburuak = argitaratutakoLiburuak;
+    }
+    
     @Override
     public String toString() {
         return name + ", " + author.getName() + ", " + price + ", " + pages;  
+    }
+
+    @Override
+    public void argitaratu() {
+        System.out.println("Eibarren argitaratua " + LocalDate.now() + "egunean");
+        argitaratutakoLiburuak++;
     }
 }
