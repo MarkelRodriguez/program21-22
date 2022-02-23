@@ -20,8 +20,8 @@ public class TestEquals {
     public static void main(String[] args) {
         
         Author i1 = new Author("J.K.Rowling", 'm');
-        Author i2 = new Author("J.K.Rowling", 'f');
-        Book b1 = new Book("Harry Potte", i1, 99.99, 2850);
+        Author i2 = new Author("J.K.Rowling", 'm');
+        Book b1 = new Book("Harry Potter", i1, 99.99, 2850);
         Book b2 = new Book("Harry Potter", i2, 99.99, 2850);
         
         if(b1.equals(b2)){
