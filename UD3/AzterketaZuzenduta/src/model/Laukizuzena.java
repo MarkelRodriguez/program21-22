@@ -54,7 +54,14 @@ public class Laukizuzena implements Marrazgarria {
         
         return puntuak;
     }
-
+    public boolean isInside(Puntua bestePuntua){
+        if(this.erpinBat.getX() <= bestePuntua.getX() && bestePuntua.getX()<= this.kontrakoErpina.getX() && this.erpinBat.getY() <= bestePuntua.getY() && bestePuntua.getY()<= this.kontrakoErpina.getY() ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     @Override
     public String toString() {
         

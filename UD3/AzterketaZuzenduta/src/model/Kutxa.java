@@ -21,7 +21,12 @@ public class Kutxa extends Laukizuzena {
         return altuera;
     }
     public int getBolumena(){
-        return (getErpinBat().getX() - getKontrakoErpina().getX()) * (getErpinBat().getY() - getKontrakoErpina().getY()) * altuera;
+        return (super.getErpinBat().getX() - super.getKontrakoErpina().getX()) * (super.getErpinBat().getY() - super.getKontrakoErpina().getY()) * this.altuera;
+    }
+    public double getErtzenLuzeera(){
+       double kat1 = getErpinBat().getX() - getKontrakoErpina().getX();
+       double kat2 = getErpinBat().getY() - getKontrakoErpina().getY();
+        return  Math.sqrt(Math.pow( kat1,2 ) + Math.pow( kat2,2));
     }
 
     public boolean isHandiagoa(Kutxa besteKutxaBat){

@@ -20,8 +20,9 @@ public class Test4 {
     public static void main(String[] args) {
        Kutxa k1 = new Kutxa(new Puntua(2,17),new Puntua(6,25),4);
        
-       k1.getBolumena();
+        System.out.println(k1.getBolumena());
         
+        System.out.println(k1.getErtzenLuzeera());
     }
     
 }
