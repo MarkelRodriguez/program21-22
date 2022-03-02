@@ -5,6 +5,8 @@
  */
 package exec;
 
+import java.util.ArrayList;
+import model.Kutxa;
 import model.Laukizuzena;
 import model.Puntua;
 
@@ -34,6 +36,9 @@ public class Test5 {
          else{
              System.out.println("Ez dago barruan");
          }
+         
+         ArrayList<Kutxa> Kutxak = new ArrayList<>();
+         Kutxak.add(new Laukizuzena(new Puntua(7,2),new Puntua(10,4)));
     }
     
 }

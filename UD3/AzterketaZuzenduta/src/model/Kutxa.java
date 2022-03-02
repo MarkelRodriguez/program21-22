@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author rodriguez.markel
@@ -28,7 +30,20 @@ public class Kutxa extends Laukizuzena {
        double kat2 = getErpinBat().getY() - getKontrakoErpina().getY();
         return  Math.sqrt(Math.pow( kat1,2 ) + Math.pow( kat2,2));
     }
-
+    
+    public static Kutxa handiena(ArrayList<Kutxa> kutxak){
+        
+        int handiena = 0;
+        for (int i = 0; i < kutxak.size(); i++) {
+            handiena = kutxak.get(i).getBolumena();
+            if (kutxak.get(i).getBolumena() > handiena ){
+            return kutxak.get(i);
+        }
+            
+        }
+        
+    }
+    
     public boolean isHandiagoa(Kutxa besteKutxaBat){
        
         
