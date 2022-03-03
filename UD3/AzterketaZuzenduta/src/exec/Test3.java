@@ -15,5 +15,6 @@ public class Test3 {
         } else
            k2.marraztu();
         
+        
     }
 }

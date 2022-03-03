@@ -7,6 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
@@ -47,10 +48,10 @@ public class Laukizuzena implements Marrazgarria {
     
     public ArrayList<Puntua> getLauErpinenArrayLista(){
         ArrayList<Puntua> puntuak = new ArrayList<>();
-        puntuak.add(new Puntua(getErpinBat().getX(),getErpinBat().getY()));
+        puntuak.add(erpinBat);
         puntuak.add(new Puntua(getErpinBat().getX(),getKontrakoErpina().getY()));
         puntuak.add(new Puntua(getKontrakoErpina().getX(),getErpinBat().getY()));
-        puntuak.add(new Puntua(getKontrakoErpina().getX(),getKontrakoErpina().getY()));
+        puntuak.add(kontrakoErpina);
         
         return puntuak;
     }
@@ -62,6 +63,44 @@ public class Laukizuzena implements Marrazgarria {
             return false;
         }
     }
+    
+    public void jiratu(){
+         Scanner in = new Scanner(System.in);
+        System.out.println("Zenbat posizio mugitu nahi duzu puntua:");
+        int zenbat = in.nextInt();
+        
+        System.out.println("norantz mugitu nahi duzu");
+        String norantz = in.next();
+        
+         switch (norantz) {
+            case "eskumarantz":
+                for(int i = 0; i < getLauErpinenArrayLista().size();i++){
+                    getLauErpinenArrayLista().get(i).setX(getLauErpinenArrayLista().get(i).getX() + zenbat);
+                }
+                break;
+            case "ezkerrerantz":
+                for(int i = 0; i < getLauErpinenArrayLista().size();i++){
+                   getLauErpinenArrayLista().get(i).setX(getLauErpinenArrayLista().get(i).getX() - zenbat);
+                }
+                break;
+            case "goruntz":
+                for(int i = 0; i < getLauErpinenArrayLista().size();i++){
+                   getLauErpinenArrayLista().get(i).setY(getLauErpinenArrayLista().get(i).getY() + zenbat);
+                }
+                break;
+            case "beheruntz":
+                for(int i = 0; i < getLauErpinenArrayLista().size();i++){
+                   getLauErpinenArrayLista().get(i).setY(getLauErpinenArrayLista().get(i).getY() - zenbat);
+                }
+                break;
+            default:
+                System.out.println("ezin da horrela mugitu");
+                break;
+        }
+         System.out.println(this);
+    }
+    
+         
     @Override
     public String toString() {
         

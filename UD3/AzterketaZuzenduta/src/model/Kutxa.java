@@ -23,7 +23,7 @@ public class Kutxa extends Laukizuzena {
         return altuera;
     }
     public int getBolumena(){
-        return (super.getErpinBat().getX() - super.getKontrakoErpina().getX()) * (super.getErpinBat().getY() - super.getKontrakoErpina().getY()) * this.altuera;
+        return Math.abs(super.getErpinBat().getX() - super.getKontrakoErpina().getX()) * Math.abs(super.getErpinBat().getY() - super.getKontrakoErpina().getY()) * this.altuera;
     }
     public double getErtzenLuzeera(){
        double kat1 = getErpinBat().getX() - getKontrakoErpina().getX();
@@ -33,15 +33,15 @@ public class Kutxa extends Laukizuzena {
     
     public static Kutxa handiena(ArrayList<Kutxa> kutxak){
         
-        int handiena = 0;
+        Kutxa handiena = null;
         for (int i = 0; i < kutxak.size(); i++) {
-            handiena = kutxak.get(i).getBolumena();
-            if (kutxak.get(i).getBolumena() > handiena ){
-            return kutxak.get(i);
-        }
+            handiena = kutxak.get(0);
+            if (kutxak.get(i).getBolumena() > handiena.getBolumena() ){
+            handiena = kutxak.get(i);
+            }
             
         }
-        
+        return handiena;
     }
     
     public boolean isHandiagoa(Kutxa besteKutxaBat){
@@ -54,6 +54,14 @@ public class Kutxa extends Laukizuzena {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Oinarria :" + super.toString() + "eta altuera :" + altuera;
+    }
+    
+     
+    
     @Override
     public void marraztu(){
         System.out.println("Oinarria : [(" + getErpinBat().getX()+ ", " + getErpinBat().getY() + "), (" + getErpinBat().getX()+ ", " + getKontrakoErpina().getY() + "), (" + getKontrakoErpina().getX()+ ", " + getErpinBat().getY() + "), (" + getKontrakoErpina().getX()+ ", " + getKontrakoErpina().getY() + ")] eta altuera :" + altuera + "dituen kutxa GUI baten marraztu da");

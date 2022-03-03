@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author rodriguez.markel
@@ -54,7 +56,33 @@ public class Puntua implements Marrazgarria{
             return false;
         }
     }
-
+    public void mugitu(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Zenbat posizio mugitu nahi duzu puntua:");
+        int zenbat = in.nextInt();
+        
+        System.out.println("norantz mugitu nahi duzu");
+        String norantz = in.next();
+        
+         switch (norantz) {
+            case "eskumarantz":
+                this.x = this.x + zenbat;
+                break;
+            case "ezkerrerantz":
+                this.x = this.x - zenbat;
+                break;
+            case "goruntz":
+                this.y = this.y + zenbat;
+                break;
+            case "beheruntz":
+                this.y = this.y - zenbat;
+                break;
+            default:
+                System.out.println("ezin da horrela mugitu");
+                break;
+        }
+         System.out.println(this);
+    }
     @Override
     public int hashCode() {
         int hash = 5;

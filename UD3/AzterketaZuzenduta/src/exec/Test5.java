@@ -37,8 +37,10 @@ public class Test5 {
              System.out.println("Ez dago barruan");
          }
          
-         ArrayList<Kutxa> Kutxak = new ArrayList<>();
-         Kutxak.add(new Laukizuzena(new Puntua(7,2),new Puntua(10,4)));
+        p2.mugitu();
     }
     
+    
+    
+     ArrayList<Kutxa> kutxak = new ArrayList<>();
 }
