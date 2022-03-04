@@ -5,10 +5,14 @@
  */
 package model;
 
+
+import java.awt.Graphics2D;
+
+
 /**
  *
  * @author rodriguez.markel
  */
 public interface Marrazgarria {
-    public void marraztu();
+    public void marraztu(Graphics2D g2d);
 }

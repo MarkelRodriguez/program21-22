@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Scanner;
 
 /**
@@ -115,9 +117,13 @@ public class Puntua implements Marrazgarria{
         return "(" + x + ", " + y + ")";
     }
 
+
     @Override
-    public void marraztu() {
-        System.out.println(this + " puntua GUI baten marraztu da");
+    public void marraztu(Graphics2D g2d) {
+        int radioa = 5;
+            g2d.fillOval(x, y, radioa, radioa);
+            g2d.getTransform();
     }
+
     
 }

@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -60,11 +61,18 @@ public class Kutxa extends Laukizuzena {
         return "Oinarria :" + super.toString() + "eta altuera :" + altuera;
     }
     
-     
-    
-    @Override
-    public void marraztu(){
-        System.out.println("Oinarria : [(" + getErpinBat().getX()+ ", " + getErpinBat().getY() + "), (" + getErpinBat().getX()+ ", " + getKontrakoErpina().getY() + "), (" + getKontrakoErpina().getX()+ ", " + getErpinBat().getY() + "), (" + getKontrakoErpina().getX()+ ", " + getKontrakoErpina().getY() + ")] eta altuera :" + altuera + "dituen kutxa GUI baten marraztu da");
-    
+         @Override
+    public void marraztu(Graphics2D g2d) {
+        
+            
+            g2d.drawRect(getErpinBat().getX(), getErpinBat().getY(), altuera, altuera);
+            g2d.drawRect(getErpinBat().getX()- 50, getErpinBat().getY() - 25, altuera, altuera);
+            g2d.drawLine(getErpinBat().getX(), getErpinBat().getY(), getErpinBat().getX()- 50, getErpinBat().getY() - 25);
+            g2d.drawLine(getErpinBat().getX()+100, getErpinBat().getY(), getErpinBat().getX()- 50 + 100, getErpinBat().getY() - 25);
+            g2d.drawLine(getErpinBat().getX()+100, getErpinBat().getY() + 100 , getErpinBat().getX()- 50 + 100, getErpinBat().getY() - 25 + 100);
+            g2d.drawLine(getErpinBat().getX(), getErpinBat().getY()+100, getErpinBat().getX()- 50, getErpinBat().getY() - 25 +100);
+            
     }
+    
+    
 }

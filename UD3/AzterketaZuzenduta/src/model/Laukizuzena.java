@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -108,9 +109,15 @@ public class Laukizuzena implements Marrazgarria {
         return  Arrays.toString(getLauErpinenArraya());
     }
 
-    @Override
-    public void marraztu() {
-        System.out.println(this + " Laukizuzena GUI baten gorde da");
+   @Override
+    public void marraztu(Graphics2D g2d) {
+        
+            
+            g2d.drawLine(erpinBat.getX(), erpinBat.getY(), erpinBat.getX(),kontrakoErpina.getY());
+            g2d.drawLine(erpinBat.getX(),kontrakoErpina.getY(), kontrakoErpina.getX(), kontrakoErpina.getY());
+            g2d.drawLine(erpinBat.getX(), erpinBat.getY(), kontrakoErpina.getX(),erpinBat.getY());
+            g2d.drawLine(kontrakoErpina.getX(),erpinBat.getY(), kontrakoErpina.getX(), kontrakoErpina.getY());
+            g2d.getTransform();
     }
     
     

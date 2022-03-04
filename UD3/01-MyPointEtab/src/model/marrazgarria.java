@@ -30,7 +30,8 @@ public class marrazgarria {
         }
 
         public void marraztu(Graphics2D g2d) {
-             int radioa = 5;
+             
+            int radioa = 5;
             g2d.fillOval(x, y, radioa, radioa);
             g2d.getTransform();
         }
