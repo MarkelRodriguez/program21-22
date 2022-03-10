@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package histegiasqlitemvc;
 
 /**
  *
  * @author rodriguez.markel
  */
-public class MenuNagusia {
+public class ProgramaNaguisa {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //SQLiteaKudeatu.connect();
-        SQLiteaKudeatu app = new SQLiteaKudeatu();
-        app.selectAll();
     }
     
 }
