@@ -23,18 +23,36 @@ import java.awt.event.ActionListener;
     }    
     private void gehituActionListener(ActionListener listener) {
         //GUIaren konponente guztiei gehitu listenerra
-        view.jButtonTxertatu.addActionListener(listener);        
+        view.jButtonTxertatu.addActionListener(listener);
+        view.jButtonInprimatu.addActionListener(listener); 
+        view.jButtonIrten.addActionListener(listener); 
+        view.jButtonBueltatu.addActionListener(listener); 
+        view.jButtonGehitu.addActionListener(listener);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         String actionCommand = e.getActionCommand();
         //listenerrak entzun dezakeen eragiketa bakoitzeko. Konponenteek 'actionCommad' propietatea daukate
         switch (actionCommand) {
+            
             case "TXERTATU":
+                view.jDialogHitzaSartu.setVisible(true);
+                break;
+            case "INPRIMATU":
+                 model.selectAll();
+                 break;
+            case "GEHITU":
                 Terminoa t = new Terminoa(0,view.jTextFieldEuskaraz.getText(),view.jTextFieldGazteleraz.getText());
                 model.insert(t);
                 view.jTextFieldEuskaraz.setText(" ");
                 view.jTextFieldGazteleraz.setText(" ");
+                break;
+                
+            case "BUELTATU":
+                view.jDialogHitzaSartu.dispose();
+                break;
+            case "IRTEN":
+                view.dispose();
         }
     }
 }

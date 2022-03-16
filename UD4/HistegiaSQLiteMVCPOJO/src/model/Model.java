@@ -20,7 +20,7 @@ public class Model {
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:\\Users\\rodriguez.markel\\Documents\\GitHub\\program21-22\\UD4\\HistegiaSQLiteMVC\\src\\histegiasqlitemvc\\Hiztegia.db";
+        String url = "jdbc:sqlite:C:\\Users\\rodriguez.markel\\Documents\\GitHub\\program21-22\\UD4\\HistegiaSQLiteMVCPOJO\\src\\db\\Hiztegia.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

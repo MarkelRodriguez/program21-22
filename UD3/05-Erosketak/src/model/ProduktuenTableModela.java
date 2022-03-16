@@ -38,7 +38,7 @@ public class ProduktuenTableModela extends AbstractTableModel {
         String kodea;
         if(col == 0){
             
-            data.get(row).;
+            data.get(row);
               return true;
               
           }
