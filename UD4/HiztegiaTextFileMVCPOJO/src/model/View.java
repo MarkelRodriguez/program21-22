@@ -27,125 +27,19 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialogHitzaSartu = new javax.swing.JDialog();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldEuskaraz = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldGazteleraz = new javax.swing.JTextField();
-        jButtonGehitu = new javax.swing.JButton();
-        jButtonBueltatu = new javax.swing.JButton();
         jLabelTitulua = new javax.swing.JLabel();
-        jButtonTxertatu = new javax.swing.JButton();
-        jButtonIrten = new javax.swing.JButton();
-        jButtonInprimatu = new javax.swing.JButton();
-
-        jDialogHitzaSartu.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("HITZA GEHITU");
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setText("HITZA EUSKERAZ:");
-
-        jTextFieldEuskaraz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEuskarazActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("HITZA GAZTELERAZ:");
-
-        jTextFieldGazteleraz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldGaztelerazActionPerformed(evt);
-            }
-        });
-
-        jButtonGehitu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButtonGehitu.setText("GEHITU");
-
-        jButtonBueltatu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButtonBueltatu.setText("MENU NAGUSIA");
-        jButtonBueltatu.setToolTipText("");
-        jButtonBueltatu.setActionCommand("BUELTATU");
-
-        javax.swing.GroupLayout jDialogHitzaSartuLayout = new javax.swing.GroupLayout(jDialogHitzaSartu.getContentPane());
-        jDialogHitzaSartu.getContentPane().setLayout(jDialogHitzaSartuLayout);
-        jDialogHitzaSartuLayout.setHorizontalGroup(
-            jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogHitzaSartuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(177, 177, 177))
-            .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                .addGroup(jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
-                                .addComponent(jTextFieldEuskaraz, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldGazteleraz, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jButtonGehitu, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(jButtonBueltatu)))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jDialogHitzaSartuLayout.setVerticalGroup(
-            jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialogHitzaSartuLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addGap(63, 63, 63)
-                .addGroup(jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEuskaraz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldGazteleraz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jDialogHitzaSartuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGehitu)
-                    .addComponent(jButtonBueltatu, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelTitulua.setFont(new java.awt.Font("Sitka Display", 1, 36)); // NOI18N
         jLabelTitulua.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulua.setText("ITZULTZAILEA");
+        jLabelTitulua.setText("HIZTEGIA.CSV");
 
-        jButtonTxertatu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButtonTxertatu.setText("HITZA TXERTATU");
-        jButtonTxertatu.setActionCommand("TXERTATU");
-        jButtonTxertatu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTxertatuActionPerformed(evt);
-            }
-        });
-
-        jButtonIrten.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButtonIrten.setText("IRTEN");
-        jButtonIrten.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIrtenActionPerformed(evt);
-            }
-        });
-
-        jButtonInprimatu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButtonInprimatu.setText("HITZAK INPRIMATU");
-        jButtonInprimatu.setToolTipText("");
-        jButtonInprimatu.setActionCommand("INPRIMATU");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,48 +51,22 @@ public class View extends javax.swing.JFrame {
                         .addGap(231, 231, 231)
                         .addComponent(jLabelTitulua, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(jButtonTxertatu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(231, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonIrten, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInprimatu))
-                .addGap(259, 259, 259))
+                        .addGap(214, 214, 214)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabelTitulua, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButtonTxertatu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButtonInprimatu, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButtonIrten)
-                .addGap(128, 128, 128))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonIrtenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIrtenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIrtenActionPerformed
-
-    private void jTextFieldEuskarazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEuskarazActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEuskarazActionPerformed
-
-    private void jTextFieldGaztelerazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGaztelerazActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldGaztelerazActionPerformed
-
-    private void jButtonTxertatuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTxertatuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonTxertatuActionPerformed
     public static View viewaSortuBistaratu() {
         View v = new View();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -244,17 +112,8 @@ public class View extends javax.swing.JFrame {
     } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JButton jButtonBueltatu;
-    javax.swing.JButton jButtonGehitu;
-    javax.swing.JButton jButtonInprimatu;
-    javax.swing.JButton jButtonIrten;
-    javax.swing.JButton jButtonTxertatu;
-    javax.swing.JDialog jDialogHitzaSartu;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelTitulua;
-    public javax.swing.JTextField jTextFieldEuskaraz;
-    public javax.swing.JTextField jTextFieldGazteleraz;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
