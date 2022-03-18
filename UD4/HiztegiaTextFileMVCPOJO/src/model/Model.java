@@ -23,30 +23,27 @@ public class Model {
     
     private String fitxategia = "Hiztegia.csv";
     
-    public void terminoakGorde(String edukia) throws IOException{
+    public void terminoakJaso(String edukia) throws IOException{
         PrintWriter terminoa = null;
+       
         try {
              terminoa = new PrintWriter(new FileWriter(fitxategia));
              
-              while (edukia != null) {
-                terminoa.println(edukia);
-            }
+             terminoa.write(edukia, 0, edukia.length());
+            
         }
-        finally {
-            if ( terminoa != null) {
-                terminoa.close();
-            }
-        }
+        catch (IOException x) {
+      System.err.println(x);
     }
-    public String terminoakJaso() throws FileNotFoundException, IOException{
+        
+    }
+    public String terminoakGorde() throws FileNotFoundException, IOException{
         BufferedReader hiztegia = null;
-        String terminoak;
+       String l;
         try {
             hiztegia = new BufferedReader(new FileReader(fitxategia));
-            
-            
-            while (hiztegia.readLine() != null) {
-                ;
+            while ((l = hiztegia.readLine()) != null) {
+               return l;
             }
         }
         finally {
@@ -54,6 +51,7 @@ public class Model {
                 hiztegia.close();
             }
         }
-        return terminoak;
+        
+         return l;   
     }
 }

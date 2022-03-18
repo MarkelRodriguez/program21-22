@@ -28,45 +28,66 @@ public class View extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelTitulua = new javax.swing.JLabel();
+        jButtonGorde = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaHitzak = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelTitulua.setFont(new java.awt.Font("Sitka Display", 1, 36)); // NOI18N
         jLabelTitulua.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulua.setText("HIZTEGIA.CSV");
+        jLabelTitulua.setText("ITZULTZAILEA");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jButtonGorde.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButtonGorde.setText("Gorde Eta Irten");
+        jButtonGorde.setToolTipText("");
+        jButtonGorde.setActionCommand("Gorde");
+        jButtonGorde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGordeActionPerformed(evt);
+            }
+        });
+
+        jTextAreaHitzak.setColumns(20);
+        jTextAreaHitzak.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaHitzak);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabelTitulua, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(231, 231, 231)
+                .addComponent(jLabelTitulua, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jButtonGorde)
+                .addGap(52, 52, 52))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabelTitulua, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jButtonGorde, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonGordeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGordeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGordeActionPerformed
     public static View viewaSortuBistaratu() {
         View v = new View();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -112,8 +133,9 @@ public class View extends javax.swing.JFrame {
     } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JButton jButtonGorde;
     private javax.swing.JLabel jLabelTitulua;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    javax.swing.JTextArea jTextAreaHitzak;
     // End of variables declaration//GEN-END:variables
 }

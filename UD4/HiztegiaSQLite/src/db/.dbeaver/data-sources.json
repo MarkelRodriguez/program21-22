@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-17f9d25d2f5-2c0e0577ed2b8510": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "Hiztegia.csv",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\Users\\rodriguez.markel\\Documents\\GitHub\\program21-22\\UD4\\HiztegiaTextFileMVCPOJO\\Hiztegia.csv",
+				"url": "jdbc:sqlite:C:\\Users\\rodriguez.markel\\Documents\\GitHub\\program21-22\\UD4\\HiztegiaTextFileMVCPOJO\\Hiztegia.csv",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

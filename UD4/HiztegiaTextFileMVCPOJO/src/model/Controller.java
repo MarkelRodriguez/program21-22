@@ -8,6 +8,9 @@ package model;
 import model.Model;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,11 +26,10 @@ import java.awt.event.ActionListener;
     }    
     private void gehituActionListener(ActionListener listener) {
         //GUIaren konponente guztiei gehitu listenerra
-        view.jButtonTxertatu.addActionListener(listener);
-        view.jButtonInprimatu.addActionListener(listener); 
-        view.jButtonIrten.addActionListener(listener); 
-        view.jButtonBueltatu.addActionListener(listener); 
-        view.jButtonGehitu.addActionListener(listener);
+        
+        view.jButtonGorde.addActionListener(listener); 
+        
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -35,22 +37,21 @@ import java.awt.event.ActionListener;
         //listenerrak entzun dezakeen eragiketa bakoitzeko. Konponenteek 'actionCommad' propietatea daukate
         switch (actionCommand) {
             
-            case "TXERTATU":
-                view.jDialogHitzaSartu.setVisible(true);
-                break;
-            case "INPRIMATU":
-                 model.selectAll();
-                 break;
-            case "GEHITU":
-                Terminoa t = new Terminoa(0,view.jTextFieldEuskaraz.getText(),view.jTextFieldGazteleraz.getText());
-                model.insert(t);
-                view.jTextFieldEuskaraz.setText(" ");
-                view.jTextFieldGazteleraz.setText(" ");
-                break;
+            
+            case "Gorde":
                 
-            case "BUELTATU":
-                view.jDialogHitzaSartu.dispose();
-                break;
+            {
+                try {
+                    model.terminoakJaso(view.jTextAreaHitzak.getText());
+                } catch (IOException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                 
+                 break;
+
+            
+            
             case "IRTEN":
                 view.dispose();
         }
