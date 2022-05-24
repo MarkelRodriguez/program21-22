@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Model {
 
@@ -31,7 +33,7 @@ public class Model {
         String taula = "Terminoak";
         String sql = "SELECT * FROM " + taula;
 
-        try ( Connection conn = konektatu();  Statement stmt = conn.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
+        try (Connection conn = konektatu(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
             //Txostenaren izenburua
             String izenburua = DB + " datu-baseko " + taula + " taulako datuak:";
             System.out.println(izenburua);
@@ -42,7 +44,7 @@ public class Model {
 
             int kont = 0;
             while (rs.next()) {
-                Terminoa t = new Terminoa(rs.getInt("id"),rs.getString("euskaraz"),rs.getString("gazteleraz"));
+                Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
                 System.out.println(t);
                 kont++;
             }
@@ -58,10 +60,10 @@ public class Model {
 
 //    public static ArrayList<Terminoa> tBilatu(String hitza) {
 //        String taula = "Terminoak";
-//        String sql = "SELECT * FROM " + taula + " WHERE euskaraz= ? OR gazteleraz = ?";
+//        String sqlInsert = "SELECT * FROM " + taula + " WHERE euskaraz= ? OR gazteleraz = ?";
 //
 //        ArrayList<Terminoa> alt = new ArrayList<>();
-//        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 //
 //        } catch (Exception ex) {
 //
@@ -70,9 +72,9 @@ public class Model {
 //    }
 //    public static int tGehitu(Terminoa t) {
 //
-//        String sql = "INSERT INTO Terminoak(id,euskaraz,gazteleraz) VALUES(?,?,?)";
+//        String sqlInsert = "INSERT INTO Terminoak(id,euskaraz,gazteleraz) VALUES(?,?,?)";
 //
-//        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 //            pstmt.setInt(1, t.getId());
 //            pstmt.setString(2, t.getEuskaraz());
 //            pstmt.setString(3, t.getGazteleraz());
@@ -88,7 +90,7 @@ public class Model {
         String taula = "Terminoak";
         String sql = "SELECT * FROM " + taula;
 
-        try ( Connection conn = konektatu();  Statement stmt = conn.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
+        try (Connection conn = konektatu(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
             //Txostenaren izenburua
             String izenburua = DB + " datu-baseko " + taula + " taulako datuak:";
             System.out.println(izenburua);
@@ -116,12 +118,12 @@ public class Model {
         String taula = "Terminoak";
         String sql = "SELECT * FROM " + taula + " WHERE euskaraz= ?";
 
-        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, euskarazkoa);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Terminoa t = new Terminoa(rs.getInt("id"),rs.getString("euskaraz"),rs.getString("gazteleraz"));
-                System.out.println(t);                
+                Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                System.out.println(t);
             }
 
         } catch (SQLException e) {
@@ -129,28 +131,39 @@ public class Model {
         }
 
     }
-      public int terminoaGehitu(Terminoa t) {
 
-        String sql = "INSERT INTO Terminoak(euskaraz,gazteleraz) VALUES(?,?)";
+    public int terminoaGehitu(Terminoa t) {
+        
+           String sqlSelect = "SELECT * FROM Terminoak WHERE euskaraz =? AND gazteleraz = ?";
+           try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sqlSelect)) {
 
-        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
             pstmt.setString(1, t.getEuskaraz());
             pstmt.setString(2, t.getGazteleraz());
-            return pstmt.executeUpdate();
-
+            ResultSet rs = pstmt.executeQuery();
+            return 0;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
         }
 
-    }
+        String sqlInsert = "INSERT INTO Terminoak(euskaraz,gazteleraz) VALUES(?,?)";
 
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
+
+            pstmt.setString(1, t.getEuskaraz());
+            pstmt.setString(2, t.getGazteleraz());
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+    
     public int terminoaGehituObjektuGabe(int id, String euskaraz, String gazteleraz) {
 
         String sql = "INSERT INTO Terminoak(id,euskaraz,gazteleraz) VALUES(?,?,?)";
 
-        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, 1790);
             pstmt.setString(2, euskaraz);
             pstmt.setString(3, gazteleraz);
@@ -167,7 +180,7 @@ public class Model {
 
         String sql = "DELETE FROM Terminoak WHERE id = ?";
 
-        try ( Connection conn = konektatu();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             return pstmt.executeUpdate();
 
@@ -187,10 +200,10 @@ public class Model {
 //        System.out.print("Termino berria: ");
 //        String strEu = in.nextLine();
 //        String strEs = terminoa.split(" ");
-        //String sql = "SELECT id,euskaraz,gazteleraz FROM Terminoak WHERE euskaraz = '"+ strEuskaraz+"'" ;
+        //String sqlInsert = "SELECT id,euskaraz,gazteleraz FROM Terminoak WHERE euskaraz = '"+ strEuskaraz+"'" ;
         String sql = "INSERT INTO Terminoak(euskaraz,gazteleraz) VALUES('" + eu + "','" + es + "')";
 
-        try ( Connection conn = konektatu();  Statement stmt = conn.createStatement()) {
+        try (Connection conn = konektatu(); Statement stmt = conn.createStatement()) {
             int n = stmt.executeUpdate(sql);
 
             //     System.out.println(strEuskaraz +" => " +rs.getString("gazteleraz"));
