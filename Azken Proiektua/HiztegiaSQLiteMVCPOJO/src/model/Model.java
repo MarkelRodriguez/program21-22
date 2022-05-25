@@ -134,17 +134,7 @@ public class Model {
 
     public int terminoaGehitu(Terminoa t) {
         
-           String sqlSelect = "SELECT * FROM Terminoak WHERE euskaraz =? AND gazteleraz = ?";
-           try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sqlSelect)) {
-
-            pstmt.setString(1, t.getEuskaraz());
-            pstmt.setString(2, t.getGazteleraz());
-            ResultSet rs = pstmt.executeQuery();
-            return 0;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
+        int resp = 0;
 
         String sqlInsert = "INSERT INTO Terminoak(euskaraz,gazteleraz) VALUES(?,?)";
 
@@ -152,11 +142,19 @@ public class Model {
 
             pstmt.setString(1, t.getEuskaraz());
             pstmt.setString(2, t.getGazteleraz());
-            return pstmt.executeUpdate();
+            int i =  pstmt.executeUpdate();
+            
+            if(i == 1){
+                resp = 1;
+            }
+            else if (i == 0){
+                resp = 0;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return 0;
+            resp = 0;
         }
+        return resp;
     }
     
     public int terminoaGehituObjektuGabe(int id, String euskaraz, String gazteleraz) {
