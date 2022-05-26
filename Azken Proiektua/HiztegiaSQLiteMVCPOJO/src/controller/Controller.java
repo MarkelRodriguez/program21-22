@@ -27,6 +27,7 @@ public class Controller implements ActionListener {
         //GUIaren konponente guztiei gehitu listenerra
         view.jButtonTxertatu.addActionListener(listener);
         view.jButtonInprimatu.addActionListener(listener);
+        
     }
 
     @Override
@@ -37,15 +38,26 @@ public class Controller implements ActionListener {
             case "TXERTATU":
                 
                 System.out.println("TXERTATU botoia sakatu duzu");
-                Terminoa t = new Terminoa(0,view.jTextFieldEuskaraz.getText(),view.jTextFieldGazteleraz.getText());
-                if(t.getEuskaraz()!= view.jTextFieldEuskaraz.getText()){
-                    model.terminoaGehitu(t);
+                Terminoa t = new Terminoa(0,view.jTextFieldEuskaraz.getText().toLowerCase(),view.jTextFieldGazteleraz.getText().toLowerCase());
+                
+                int txertatu = model.terminoaGehitu(t);
+                
+                if (txertatu == 1){
+                    view.jLabelKonfirmatu.setText("ONDO TXERTATU DA!");
                 }
+                else if(txertatu == 0){
+                    view.jLabelKonfirmatu.setText("Errepikatuta dago");
+                }
+                else{
+                    view.jLabelKonfirmatu.setText("Errore bat egon da");
+                }
+                break;
                 
                 
-        case "INPRIMATU":
+            case "INPRIMATU":
                 System.out.println("INPRIMATU botoia sakatu duzu");
                 model.terminoakInprimatu();
-        }
+                break;
+            }
     }
 }
