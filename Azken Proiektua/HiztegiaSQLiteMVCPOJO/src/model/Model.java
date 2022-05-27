@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static model.Hizkuntza.ES;
+import static model.Hizkuntza.EU;
 
 public class Model {
 
@@ -240,20 +242,114 @@ public class Model {
         return terminoak;
     }
     public Terminoa[] terminoakArrayra(){
-        int i = 1;
-        Terminoa[] terminoak = new Terminoa[i];
+        int size = 0;
+        
+        String sqlCount = "Select COUNT(id) AS zenbat FROM Terminoak";
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sqlCount)) {
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                 size = rs.getInt("zenbat");
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        int i = 0;
+        Terminoa[] terminoak = new Terminoa[size];
         String sql = "SELECT * FROM Terminoak";
         try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()){
-                for(i = 1; i <= terminoak.length; i++){
-                    terminoak[i] = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
-                }
+             
+                    
+                terminoak[i] = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                i++;
                     
             }
         }   catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return terminoak;
+    }
+    
+    public String euskaratu(String gazteleraz){
+        int count = 0;
+        String itzulpena = "";
+        String sql = "SELECT euskaraz, gazteleraz FROM Terminoak WHERE gazteleraz = ? ";
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, gazteleraz);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                
+                
+                count++;
+                if(count == 1){
+                   itzulpena = rs.getString("euskaraz");
+                }
+                else{
+                   itzulpena = itzulpena + "," + rs.getString("euskaraz");
+                }
+            }
+            
+        }   catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return itzulpena;
+    }
+    
+    public String itzuli(Hizkuntza hizkuntza, String hitza){
+        String itzulpena = "";
+        int count = 0;
+        if (hizkuntza == ES){
+            
+        
+        String sql = "SELECT euskaraz, gazteleraz FROM Terminoak WHERE gazteleraz = ? ";
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, hitza);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                
+                
+                count++;
+                if(count == 1){
+                   itzulpena = rs.getString("euskaraz");
+                }
+                else{
+                   itzulpena = itzulpena + "," + rs.getString("euskaraz");
+                }
+            }
+            
+        }   catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+            
+        }
+        else if(hizkuntza == EU){
+            
+        
+        String sql = "SELECT euskaraz, gazteleraz FROM Terminoak WHERE euskaraz = ? ";
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, hitza);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                
+                
+                count++;
+                if(count == 1){
+                   itzulpena = rs.getString("gazteleraz");
+                }
+                else{
+                   itzulpena = itzulpena + "," + rs.getString("gazteleraz");
+                }
+            }
+            
+        }   catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+            
+        }
+        return itzulpena;
     }
 }
