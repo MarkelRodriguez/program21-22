@@ -13,6 +13,11 @@ public class Terminoa {
     private String euskaraz;
     private String gazteleraz;
 
+    public Terminoa() {
+    }
+
+    
+    
     public Terminoa(int id, String euskaraz, String gazteleraz) {
         this.id = id;
         this.euskaraz = euskaraz;
