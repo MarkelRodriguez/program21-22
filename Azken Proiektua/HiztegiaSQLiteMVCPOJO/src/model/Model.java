@@ -360,7 +360,10 @@ public class Model {
         return t;
     }
 
-    public void alfabetikokiInprimatu() {
+    /**
+     * alfabetuko hizki guztiekin
+     */
+    public void alfabetikokiInprimatuhizkiguztiak() {
         String sql = "SELECT * FROM Terminoak ORDER BY euskaraz";
         ArrayList<Character> abc = new ArrayList<>();
         for (char letra = 'a'; letra <= 'z'; letra++) {
@@ -370,19 +373,51 @@ public class Model {
             ResultSet rs = pstmt.executeQuery();
 
             for (int i = 0; i < abc.size(); i++) {
-
+                ArrayList<Terminoa> terminoak = new ArrayList<>();
                 System.out.println(abc.get(i));
                 System.out.println("____");
 
-                while (rs.next()) {
-                    
-                    
+                if (rs.getString("euskaraz").charAt(0) == abc.get(i)) {
+                    Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                    terminoak.add(t);
 
-                }if (rs.getString("euskaraz").charAt(0) == abc.get(i)) {
-                        System.out.println(rs.getString("euskaraz") + ": " + rs.getString("gazteleraz"));
-                    } 
+                }
 
+                System.out.println(terminoak);
             }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    /**
+     * bakarrik hiztegian dauzkagun hitzekin
+     */
+    public void alfabetikokiInprimatu() {
+        String sql = "SELECT * FROM Terminoak ORDER BY euskaraz";
+        char unekoHizkia = ' ';
+
+        try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                
+                if (rs.getString("euskaraz").charAt(0) == unekoHizkia) { 
+                     Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                     System.out.println(t);
+                }
+                else{                       //hizki aldaketa
+                    System.out.println(unekoHizkia);
+                    System.out.println("____");
+                }
+                
+            }
+            
+
+           
+           
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
