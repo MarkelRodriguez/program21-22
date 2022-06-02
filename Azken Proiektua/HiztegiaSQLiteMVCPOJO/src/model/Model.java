@@ -363,7 +363,7 @@ public class Model {
     /**
      * alfabetuko hizki guztiekin
      */
-    public void alfabetikokiInprimatuhizkiguztiak() {
+    public void alfabetikokiInprimatuHizkiGuztiak() {
         String sql = "SELECT * FROM Terminoak ORDER BY euskaraz";
         ArrayList<Character> abc = new ArrayList<>();
         for (char letra = 'a'; letra <= 'z'; letra++) {
@@ -371,25 +371,35 @@ public class Model {
         }
         try (Connection conn = konektatu(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
-
-            for (int i = 0; i < abc.size(); i++) {
+            
+            
                 ArrayList<Terminoa> terminoak = new ArrayList<>();
-                System.out.println(abc.get(i));
-                System.out.println("____");
+                if(rs.next()){
+                for (int i = 0; i < abc.size(); i++) {
+                    
+                    System.out.println(abc.get(i));
+                    System.out.println("____");
+                
+                    if (rs.getString("euskaraz").charAt(0) == abc.get(i)) {
+                        
+                        Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                        terminoak.add(t);
+                        
+                        System.out.println(terminoak);
 
-                if (rs.getString("euskaraz").charAt(0) == abc.get(i)) {
-                    Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
-                    terminoak.add(t);
+                    } else {
+                        System.out.println("Ez dago halakorik");
 
+                    }
+                
                 }
+                
+                }      
+        
 
-                System.out.println(terminoak);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+    }   catch (SQLException ex) {
+            Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }
 
     /**
      * bakarrik hiztegian dauzkagun hitzekin
@@ -402,21 +412,18 @@ public class Model {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                
-                if (rs.getString("euskaraz").charAt(0) == unekoHizkia) { 
-                     Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
-                     System.out.println(t);
-                }
-                else{                       //hizki aldaketa
+
+                if (rs.getString("euskaraz").charAt(0) != unekoHizkia) {//hizki aldaketa
+                    unekoHizkia = rs.getString("euskaraz").charAt(0);
                     System.out.println(unekoHizkia);
                     System.out.println("____");
+                    Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                    System.out.println(t);
+                } else {
+                    Terminoa t = new Terminoa(rs.getInt("id"), rs.getString("euskaraz"), rs.getString("gazteleraz"));
+                    System.out.println(t);
                 }
-                
             }
-            
-
-           
-           
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
